@@ -193,6 +193,7 @@ h2 {
       }
       .contenido p{
         font-size :11px;
+        padding-bottom: 3px;
       }
 
       .contenido img {
