@@ -2,7 +2,7 @@
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     
-    zoom: 16,
+    zoom: 14,
     disableDefaultUI: true
   });
   
@@ -70,25 +70,25 @@ function marcasGeriatricos(map){
 
           
 
-          $.ajax({
+          /*$.ajax({
               type: "GET",
               url: "http://url.json",
               dataType:"json",
-              success:function(json){
+              success:function(json){*/
 
               
-              //var json = [{"id":6,"titulo":"sadad","descripcion":"asdasd"}]  
+              var json = [{"id":6,"titulo":"Geriatrico1","descripcion":"descGeriatrico1","telefono":"4602932","lat":"-31.4141082","long":"-64.1892319"},{"id":6,"titulo":"geriatrico2","descripcion":"descGeriatrico2","telefono":"4603432","lat":"-31.4180885","long":"-64.1833096"}]  
 
               for(var i = 0; i < json.length; i++)
                 {
-                  //var numeroTelef = parseFloat(json[i].extension);
+                  var numeroTelef = parseFloat(json[i].telefono);
                  
                   var sContent = '<a href ="item.html?titulo='+json[i].titulo+'&telef='+numeroTelef+'&desc='+json[i].descripcion+'"> <div class="contenido"><img src="http://s3.amazonaws.com/oferty/defi/'+json[i].id+'"/ alt="" ><h3>'+json[i].titulo+'</h3><br></div> <br> <input type ="button" class="btnVer" value="Ver mas"/> </a>';
 
                   infoWindow = new google.maps.InfoWindow({ content: sContent});
 
-                  var latitudP = parseFloat(platos[i].lat);
-                  var longP =parseFloat(platos[i].long);
+                  var latitudP = parseFloat(json[i].lat);
+                  var longP =parseFloat(json[i].long);
 
                   console.log(latitudP);
                   console.log(longP);
@@ -100,7 +100,7 @@ function marcasGeriatricos(map){
                   var mark = new google.maps.Marker({
                     position: {lat: latitudP, lng: longP},
                     map: map,
-                    title: platos[i].title,
+                    title: json[i].title,
                     info: sContent,
                     icon: imageG
                   });
@@ -113,9 +113,9 @@ function marcasGeriatricos(map){
                 }
               }
           
-          });
+          /*});*/
   
 
 
-}
+
 
