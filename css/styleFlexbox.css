@@ -204,7 +204,12 @@ h2 {
       a:link   
       {   
        text-decoration:none;   
-      }   
+      } 
+
+      .contenido h5{
+
+        padding-bottom: 3px;
+      }  
 
 
       /*
