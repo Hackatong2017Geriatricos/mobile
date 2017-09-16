@@ -97,11 +97,11 @@
 }
 
 .nav li:nth-child(1) a:before {
-  content: '\f03a';
+  content: '\f002';
 }
 
 .nav li:nth-child(2) a:before {
-  content: "\f03a";
+  content: "\f060";
 }
 
 .nav li:nth-child(3) a:before {
