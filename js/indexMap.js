@@ -45,7 +45,7 @@ function initMap() {
   
 
 
-//poner publicaciones de otros
+//poner marcas
  marcasGeriatricos(map);
 
 
@@ -77,18 +77,18 @@ function marcasGeriatricos(map){
               success:function(json){*/
 
               
-              var json = [{"id":6,"titulo":"Geriatrico1","descripcion":"descGeriatrico1","telefono":"4602932","lat":"-31.4141082","long":"-64.1892319"},{"id":6,"titulo":"geriatrico2","descripcion":"descGeriatrico2","telefono":"4603432","lat":"-31.4180885","long":"-64.1833096"}]  
+              var json = [{"url":"www.geriatrico.com.ar","nombre":"Geriatrico1","descripcion":"descGeriatrico1","telefono":"4602932","latitud":"-31.4141082","longitud":"-64.1892319","direccion":"Estrada 147 Córdoba","email":"fundacion@hotmail.com","estado_habilitacion":"habilitado","ente_habilitador":"Provincia","plazas_habilitadas":25,"fecha_actualizacion":"31/12/1900","fecha_creacion":"01/01/1900"},{"url":"www.geriatrico.com.ar","nombre":"Geriatrico2","descripcion":"descGeriatrico2","telefono":"4602932","latitud":"-31.4180885","longitud":"-64.1833096","direccion":"Estrada 147 Córdoba","email":"fundacion@hotmail.com","estado_habilitacion":"habilitado","ente_habilitador":"Provincia","plazas_habilitadas":25,"fecha_actualizacion":"31/12/1900","fecha_creacion":"01/01/1900"}]  
 
               for(var i = 0; i < json.length; i++)
                 {
                   var numeroTelef = parseFloat(json[i].telefono);
                  
-                  var sContent = '<a href ="item.html?titulo='+json[i].titulo+'&telef='+numeroTelef+'&desc='+json[i].descripcion+'"> <div class="contenido"><img src="http://s3.amazonaws.com/oferty/defi/'+json[i].id+'"/ alt="" ><h3>'+json[i].titulo+'</h3><br></div> <br> <input type ="button" class="btnVer" value="Ver mas"/> </a>';
+                  var sContent = '<a href ="item.html?titulo='+json[i].titulo+'&telef='+numeroTelef+'&desc='+json[i].descripcion+'"> <div class="contenido"><h3>'+json[i].nombre+'</h3><br><h4>'+json[i].descripcion+'</h4></div> <br> <input type ="button" class="btnVer" value="Ver mas"/> </a>';
 
                   infoWindow = new google.maps.InfoWindow({ content: sContent});
 
-                  var latitudP = parseFloat(json[i].lat);
-                  var longP =parseFloat(json[i].long);
+                  var latitudP = parseFloat(json[i].latitud);
+                  var longP =parseFloat(json[i].longitud);
 
                   console.log(latitudP);
                   console.log(longP);
