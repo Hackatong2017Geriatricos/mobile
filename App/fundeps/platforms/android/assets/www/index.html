@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html >
+  <head>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    
+    <!--<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/styleFlexbox.css">
+    
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <!--<link rel="stylesheet" type="text/css" href="css/default.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+
+    <meta charset="UTF-8">
+    <title>Index</title>
+        
+  </head>
+
+  <body>
+
+    <div class="header">
+        <div class="header-top">
+            
+          <div class="logo">
+            <!--<a href ="index.html"> <h5><img src="images/logo.png"</h5></a>-->
+            <div class= 'title2'>
+              <p>Fundeps<p>
+            </div>
+          </div>
+          
+          <div class="clearfix"> </div>
+            
+        </div>
+    </div> 
+    <a id="showLeft" class='button'></a>
+
+    <div id ="menu">
+      <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <div class='title'>
+          Fundeps
+        </div>
+        <ul class='nav'>
+          <li>
+            <a href ="#" >-</a>
+          </li>
+          <li>
+            <a href="#" >-</a>
+          </li>
+          <li>
+            <a href="#">-</a>
+          </li>
+           <li>
+           <a  id="showLeft1"  >Cerrar</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div id="map"></div>
+
+  <script>
+      var menuLeft = document.getElementById( 'cbp-spmenu-s1' )
+      
+            showLeft = document.getElementById( 'showLeft' ),
+            showLeft1 = document.getElementById( 'showLeft1' ),
+            
+            body = document.body;
+            showLeft.onclick = function() {
+              classie.toggle( menuLeft, 'cbp-spmenu-open' );
+            };
+            showLeft1.onclick= function () {
+              classie.toggle( menuLeft, 'cbp-spmenu-open' );
+            };
+            
+   </script> 
+    <script type="text/javascript" src="js/indexMap.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAkHe0_q2ZH1oR6xmaAC_ZQ0PbmONfftcY&callback=initMap"
+        async defer>
+    </script>
+    <script src="js/classie.js"></script>
+    <!-- Para detectar los swipes-->
+    <script type="text/javascript" src="js/touchevent.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("backbutton", onBackKeyDown, false); 
+      
+      function onBackKeyDown() {
+
+             navigator.app.exitApp();
+      } 
+
+
+
+    </script>
+    
+  </body>
+</html>

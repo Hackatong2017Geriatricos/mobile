@@ -46,9 +46,10 @@ function initMap() {
 
 
 //poner publicaciones de otros
- marcasGeriatricos(map);
+ nearFoods(map);
 
-
+//revisar login
+//getStatus(); 
 
 }
 
@@ -60,7 +61,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
-function marcasGeriatricos(map){
+function nearFoods(map){
     
 
     var shape = {
@@ -72,18 +73,18 @@ function marcasGeriatricos(map){
 
           $.ajax({
               type: "GET",
-              url: "http://url.json",
+              url: "http://calm-plains-52456.herokuapp.com/ofertas.json",
               dataType:"json",
-              success:function(json){
+              success:function(platos){
 
               
-              //var json = [{"id":6,"titulo":"sadad","descripcion":"asdasd"}]  
+              //var platos = [{"id":6,"titulo":"sadad","descripcion":"asdasd","precio":"2233","forma_pago":"asas","cover_content_type":"image/jpeg","usuario_id":2,"categorium_id":null,"ubicacion":"","ciudad_id":null,"comercio":"ariel.slade.1","valoracion":"4","lat":"-31.430228","long":"-64.207449","url":"http://localhost:3000/oferta/6.json"},{"id":7,"titulo":"probando","descripcion":"a ver","precio":"2","forma_pago":"asas","cover_content_type":null,"usuario_id":2,"categorium_id":null,"ubicacion":"","ciudad_id":null,"comercio":"juanaugustososa","valoracion":"4","lat":"-31.430069999999994","long":"-64.2060861","url":"http://localhost:3000/oferta/7.json"}]  
 
-              for(var i = 0; i < json.length; i++)
+              for(var i = 0; i < platos.length; i++)
                 {
-                  //var numeroTelef = parseFloat(json[i].extension);
+                  var numeroTelef = parseFloat(platos[i].extension);
                  
-                  var sContent = '<a href ="item.html?titulo='+json[i].titulo+'&telef='+numeroTelef+'&desc='+json[i].descripcion+'"> <div class="contenido"><img src="http://s3.amazonaws.com/oferty/defi/'+json[i].id+'"/ alt="" ><h3>'+json[i].titulo+'</h3><br></div> <br> <input type ="button" class="btnVer" value="Ver mas"/> </a>';
+                  var sContent = '<a href ="item.html?titulo='+platos[i].titulo+'&precio='+platos[i].precio+'&telef='+numeroTelef+'&desc='+platos[i].descripcion+'&img=http://s3.amazonaws.com/oferty/defi/'+platos[i].id+'&iduser='+platos[i].comercio+'"> <div class="contenido"><img src="http://s3.amazonaws.com/oferty/defi/'+platos[i].id+'"/ alt="" ><h3>'+platos[i].titulo+'</h3><br><p>Precio: $'+platos[i].precio+'</p></div> <br> <input type ="button" class="btnVer" value="Ver mas"/> </a>';
 
                   infoWindow = new google.maps.InfoWindow({ content: sContent});
 
@@ -119,3 +120,14 @@ function marcasGeriatricos(map){
 
 }
 
+var logout = function () { 
+                facebookConnectPlugin.logout( 
+                    function (response) { console.log(JSON.stringify(response)) 
+
+                      navigator.app.exitApp();
+                    },
+                    function (response) { console.log(JSON.stringify(response)) });
+            }            
+
+
+// $ document ready
